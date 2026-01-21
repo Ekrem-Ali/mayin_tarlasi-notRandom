@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mayin Tarlasi Oyunu</title>
+</head>
+<body>
+
+    <h1>MAYIN TARLASI</h1>
+
+    <p>Oyuncu Adi: <input id="oyuncuAdi" type="text" placeholder="Adini buraya yaz"></p>
+    <p>24 kare arasında 6 mayın vardır</p>
+    <hr> 
+    <p>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(true)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(true)">X</button>
+    </p>
+
+    <p>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(true)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+    </p>
+
+    <p>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(true)">X</button>
+    </p>
+    <p>
+        <button onclick="bombaVarmı(true)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(true)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+        <button onclick="bombaVarmı(false)">X</button>
+    </p>
+    <h3 id="skorlar" style="color: black;">Skor: 0</h3>
+    <script>
+        let skor = 0; // Skor değişkeni
+
+        function bombaVarmı(mayin) {
+            let skorSayisi = document.getElementById("skorlar");
+            const oyuncuAdi = document.getElementById('oyuncuAdi').value || "Oyuncu";
+            if (mayin) {
+                alert(oyuncuAdi +" Patladı. Skorun: " + skor);
+                skor = 0; // Skoru sıfırlar
+                skorSayisi.style.color = "black";
+            } 
+            else 
+            {
+                skor++; // Skoru artır
+                if (skor >= 6) {
+                    skorSayisi.style.color = "red";
+                } 
+                else if (skor >= 3) {
+                    skorSayisi.style.color = "orange";
+                }
+            }
+            skorSayisi.innerText = "Skor: " + skor;
+        }
+    </script>
+</body>
+</html>
